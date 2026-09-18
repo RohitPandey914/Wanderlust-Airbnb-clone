@@ -1,3 +1,9 @@
+if(process.env.NODE_ENV != "production"){
+require('dotenv').config();
+}
+
+console.log(process.env.SECRET);
+
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
@@ -37,7 +43,7 @@ app.use(express.static(path.join(__dirname,"/public")));
 const sessionOptions={
     secret:"mysupersecretcode",
     resave:false,
-    saveuninitialized:true,
+    saveUninitialized:true,
     cookie:{
         expires: Date.now() + 7 * 24 * 60 * 60 *  1000,
         maxAge:7 * 24 * 60 * 60 *  1000,
