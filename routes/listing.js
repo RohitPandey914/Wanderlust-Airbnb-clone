@@ -18,10 +18,10 @@ router
    wrapAsync (listingController.createListing));
 
 
+
  //New Route
 
 router.get("/new", isLoggedIn,listingController.renderNewForm);
-
 router.route("/:id")
  .get(wrapAsync(listingController.showListing))
  .put(isLoggedIn,
@@ -34,5 +34,7 @@ router.route("/:id")
 //Edit Route
 
 router.get("/:id/edit", isLoggedIn,isOwner,wrapAsync(listingController.renderEditForm));
+
+
 
 module.exports=router;
